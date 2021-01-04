@@ -1,15 +1,20 @@
 <template>
   <div>
     <full-page ref="fullpage" :options="options" id="fullpage">
-      <div class="section">First section ...</div>
-      <div class="section">Second section ...</div>
+      <div class="section">First section ...
+        <img alt="Tschinga logo" src="../assets/logo.png" height="500px">
+        <Introduction />
+      </div>
     </full-page>
   </div>
 </template>
 
 <script>
+import Introduction from './Introduction.vue';
+
 export default {
-  name: "Page",
+  components: { Introduction },
+  name: 'Page',
   props: {
     msg: String,
   },

@@ -18,6 +18,13 @@ export default {
   props: {
     msg: String,
   },
+  data() {
+    return {
+      options: {
+        licenseKey: process.env.FULLPAGE_LICENSE,
+      },
+    };
+  },
 };
 </script>
 

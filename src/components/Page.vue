@@ -1,17 +1,23 @@
 <template>
   <div>
     <full-page ref="fullpage" :options="options" id="fullpage">
-      <div class="section">First section ...</div>
-      <div class="section">Second section ...</div>
+      <div class="section">Tschinga</div>
     </full-page>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Page",
+  name: 'Page',
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      options: {
+        licenseKey: process.env.FULLPAGE_LICENSE,
+      },
+    };
   },
 };
 </script>

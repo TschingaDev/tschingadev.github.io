@@ -1,29 +1,20 @@
 <template>
   <div>
-    <full-page ref="fullpage" :options="options" id="fullpage">
-      <div class="section">First section ...
-        <img alt="Tschinga logo" src="../assets/logo.png" height="500px">
-        <Introduction />
-      </div>
-    </full-page>
+    <div class="section">
+      <b-container fluid="sm" id="logo">
+        <img class="img-fluid" alt="Tschinga logo" src="../assets/logo.png"/>
+      </b-container>
+    </div>
   </div>
 </template>
 
 <script>
-import Introduction from './Introduction.vue';
 
 export default {
-  components: { Introduction },
+  components: {},
   name: 'Page',
   props: {
     msg: String,
-  },
-  data() {
-    return {
-      options: {
-        licenseKey: process.env.FULLPAGE_LICENSE,
-      },
-    };
   },
 };
 </script>
@@ -43,5 +34,8 @@ li {
 }
 a {
   color: #42b983;
+}
+#logo {
+  max-width: 500px;
 }
 </style>

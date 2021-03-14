@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Page msg="Welcome to Your Vue.js App"/>
+    <full-page ref="fullpage" :options="options" id="fullpage">
+      <Page msg="Welcome to Your Vue.js App"/>
+    </full-page>
   </div>
 </template>
 
@@ -12,10 +14,19 @@ export default {
   components: {
     Page,
   },
+  data() {
+    return {
+      options: {
+        licenseKey: process.env.FULLPAGE_LICENSE,
+        autoScrolling: true,
+        fitToSection: true,
+      },
+    };
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

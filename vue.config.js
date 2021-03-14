@@ -2,6 +2,11 @@
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/tshinga/'
+    ? '/tschinga/'
     : '/',
+  assetsDir: 'assets',
+  css: {
+    modules: false,
+    loaderOptions: {}
+}
 };

@@ -9,7 +9,7 @@ npm run build
 # navigate into the build output directory
 cd dist
 
-# Use custom domain
+# if you are deploying to a custom domain
 echo 'www.tschinga.ch' > CNAME
 
 git init

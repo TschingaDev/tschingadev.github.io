@@ -1,11 +1,10 @@
 <template>
     <b-container class="calendar">
-      <b-container class="calendar-date">
-        Montag 15.01.21
-      </b-container>
-      <b-container class="calendar-entry">
-        Tolle Veranstaltung
-      </b-container>
+      <ul id="example-1">
+        <li v-for="event in events" :key="event.title">
+          {{ event.start_dt.split('T')[0] }} : {{ event.title }}
+        </li>
+      </ul>
     </b-container>
 </template>
 
@@ -13,6 +12,35 @@
 export default {
   name: 'Calendar',
   props: {
+    iCalUrl: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      events: [],
+    };
+  },
+  created() {
+    fetch(this.iCalUrl, {
+      method: 'GET',
+      headers: {
+        'Teamup-Token': process.env.VUE_APP_TEAMUP_API_KEY,
+      },
+    })
+      .then(
+        (response) => {
+          // Examine the text in the response
+          response.json()
+            .then((data) => {
+              this.events = data.events;
+            });
+        },
+      )
+      .catch((err) => {
+        console.log('Could not get ', err);
+      });
   },
 };
 </script>

@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       options: {
-        licenseKey: process.env.FULLPAGE_LICENSE,
+        licenseKey: process.env.VUE_APP_FULLPAGE_LICENSE,
         autoScrolling: true,
         fitToSection: true,
       },

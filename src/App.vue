@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import Body from './components/Body.vue';
 import Title from './components/Title.vue';
+import Body from './components/Body.vue';
 
 export default {
   name: 'App',
   components: {
-    Body,
     Title,
+    Body,
   },
   data() {
     return {

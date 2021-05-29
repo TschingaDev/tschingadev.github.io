@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <b-container v-for="section in sections" :key="section.section">
+    <b-container v-for="section in sections" :key="section.title">
       <b-container class="section-head">
         {{ section.title }}
       </b-container>
@@ -24,40 +24,27 @@ function createCalendarUrl() {
   return `https://api.teamup.com/ks4dy26zrjnwhw4kz5/events?startDate=${firstDay}&endDate=${lastDay}`;
 }
 
-const sectionMap = new Map();
-sectionMap.set('MITMACHEN', null);
-sectionMap.set('KONTAKT', Contact);
-sectionMap.set('BILDER', null);
-sectionMap.set('AGENDA', Calendar);
 const sections = [
   {
-    section: {
-      title: 'MITMACHEN',
-      body: null,
-    },
+    title: 'MITMACHEN',
+    body: null,
   },
   {
-    section: {
-      title: 'KONTAKT',
-      body: 'Contact',
-    },
+    title: 'KONTAKT',
+    body: 'Contact',
   },
   {
-    section: {
-      title: 'BILDER',
-      body: null,
-    },
+    title: 'BILDER',
+    body: null,
   },
   {
-    section: {
-      title: 'AGENDA',
-      body: 'Calendar',
-    },
+    title: 'AGENDA',
+    body: 'Calendar',
   },
 ];
 
 export default {
-  components: { Calendar },
+  components: { Calendar, Contact },
   name: 'Body',
   props: {},
   data() {

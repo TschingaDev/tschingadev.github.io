@@ -12,14 +12,12 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "fullpage.js": "^3.0.9",
-    "vue": "^3.1.0-0",
-    "@vue/compat": "^3.1.0-0"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.1.0-0",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0",
@@ -28,7 +26,8 @@
     "eslint-plugin-vue": "^7.3.0",
     "raw-loader": "^4.0.2",
     "sass": "^1.32.0",
-    "sass-loader": "^10.1.0"
+    "sass-loader": "^10.1.0",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
@@ -36,7 +35,7 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/vue3-essential",
+      "plugin:vue/vue-essential",
       "eslint:recommended",
       "@vue/airbnb"
     ],

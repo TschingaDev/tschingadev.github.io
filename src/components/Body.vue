@@ -1,16 +1,16 @@
 <template>
   <div class="body">
-    <b-container v-for="section in sections" :key="section.title">
-      <b-container class="section-head">
+    <b-container v-for="(section, index) in sections" :key="section.title">
+      <b-button v-b-toggle='"collapsable-" + index' class="section-head">
         {{ section.title }}
-      </b-container>
-      <b-container fluid="sm" class="section-body">
+      </b-button>
+      <b-collapse v-bind:id='"collapsable-" + index' fluid="sm" class="section-body">
         <component
           v-if="section.body != null"
           :is="section.body"
           v-bind:[section.prop.name]="section.prop.value"
         ></component>
-      </b-container>
+      </b-collapse>
     </b-container>
   </div>
 </template>

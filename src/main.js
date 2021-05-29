@@ -1,4 +1,4 @@
-import Vue, { createApp } from 'vue';
+import Vue from 'vue';
 import { BootstrapVue } from 'bootstrap-vue';
 import App from './App.vue';
 
@@ -8,4 +8,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.use(BootstrapVue);
 
-createApp(App).mount('#app');
+new Vue({
+  render: (h) => h(App),
+}).$mount('#app');

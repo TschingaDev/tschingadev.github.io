@@ -1,51 +1,69 @@
 <template>
   <div class="body">
-    <b-container class="section">
+    <b-container v-for="section in sections" :key="section.section">
       <b-container class="section-head">
-        MITMACHEN
+        {{ section.title }}
       </b-container>
       <b-container fluid="sm" class="section-body">
-      </b-container>
-    </b-container>
-    <b-container class="section">
-      <b-container class="section-head">
-        Kontakt
-      </b-container>
-      <b-container fluid="sm" class="section-body">
-      </b-container>
-    </b-container>
-    <b-container class="section">
-      <b-container class="section-head">
-        AGENDA
-      </b-container>
-      <b-container fluid="sm" class="section-body">
-        <Calendar :iCalUrl="url"/>
+        {{ section.body }}
       </b-container>
     </b-container>
   </div>
 </template>
 
 <script>
-import Calendar from './Calendar.vue';
+import Calendar from "./Calendar.vue";
+import Contact from "./Contact.vue";
 
 function createCalendarUrl() {
   const date = new Date();
   const fd = new Date(date.getFullYear(), date.getMonth(), 1);
-  const firstDay = fd.toISOString().split('T')[0];
+  const firstDay = fd.toISOString().split("T")[0];
   const ld = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  const lastDay = ld.toISOString().split('T')[0];
+  const lastDay = ld.toISOString().split("T")[0];
   return `https://api.teamup.com/ks4dy26zrjnwhw4kz5/events?startDate=${firstDay}&endDate=${lastDay}`;
 }
 
+let sectionMap = new Map();
+sectionMap.set("MITMACHEN", null);
+sectionMap.set("KONTAKT", Contact);
+sectionMap.set("BILDER", null);
+sectionMap.set("AGENDA", Calendar);
+let sections = [
+  {
+    section: {
+      title: "MITMACHEN",
+      body: null,
+    },
+  },
+  {
+    section: {
+      title: "KONTAKT",
+      body: Contact,
+    },
+  },
+  {
+    section: {
+      title: "BILDER",
+      body: null,
+    },
+  },
+  {
+    section: {
+      title: "AGENDA",
+      body: Calendar,
+    },
+  },
+];
+
 export default {
   components: { Calendar },
-  name: 'Body',
-  props: {
-  },
+  name: "Body",
+  props: {},
   data() {
     return {
-      sections: ['Mitmachen', 'Kontakt', 'Bilder', 'Agenda'],
-      url: 'https://api.teamup.com/ks4dy26zrjnwhw4kz5/events',
+      sections: sections,
+      url: "https://api.teamup.com/ks4dy26zrjnwhw4kz5/events",
     };
   },
   created() {

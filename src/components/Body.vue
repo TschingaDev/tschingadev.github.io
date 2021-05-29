@@ -44,6 +44,7 @@ export default {
   },
   data() {
     return {
+      sections: ['Mitmachen', 'Kontakt', 'Bilder', 'Agenda'],
       url: 'https://api.teamup.com/ks4dy26zrjnwhw4kz5/events',
     };
   },

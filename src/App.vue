@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <full-page ref="fullpage" :options="options" id="fullpage">
-      <Page msg="Welcome to Your Vue.js App"/>
-    </full-page>
+    <Page/>
   </div>
 </template>
 
@@ -16,11 +14,6 @@ export default {
   },
   data() {
     return {
-      options: {
-        licenseKey: process.env.VUE_APP_FULLPAGE_LICENSE,
-        autoScrolling: true,
-        fitToSection: true,
-      },
     };
   },
 };

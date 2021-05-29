@@ -3,7 +3,7 @@
 module.exports = {
   assetsDir: 'assets',
   css: {
-    modules: false,
+    requiredModuleExtensions: false,
     loaderOptions: {},
   },
   devServer: {

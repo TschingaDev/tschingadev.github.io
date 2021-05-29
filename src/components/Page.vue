@@ -1,9 +1,13 @@
 <template>
   <div>
-    <div class="section">
-      <b-container fluid="sm" id="calendar">
-        <calendar :iCalUrl="url"></calendar>
-      </b-container>
+    <div class="title">
+    </div>
+    <div class="body">
+      <div class="section">
+        <b-container fluid="sm" id="calendar">
+          <calendar :iCalUrl="url"></calendar>
+        </b-container>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +28,6 @@ export default {
   components: { Calendar },
   name: 'Page',
   props: {
-    msg: String,
   },
   data() {
     return {

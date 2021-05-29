@@ -3,7 +3,6 @@
 module.exports = {
   assetsDir: 'assets',
   css: {
-    requiredModuleExtensions: false,
     loaderOptions: {},
   },
   devServer: {
@@ -12,5 +11,5 @@ module.exports = {
     port: 8080, // CHANGE YOUR PORT HERE!
     https: false,
     hotOnly: false,
-  }
+  },
 };

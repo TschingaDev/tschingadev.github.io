@@ -8,25 +8,24 @@
 
 <script lang="js">
 
-  export default  {
-    name: 'event',
-    props: [],
-    mounted () {
+export default {
+  name: 'event',
+  props: [],
+  mounted() {
 
-    },
-    data () {
-      return {
+  },
+  data() {
+    return {
 
-      }
-    },
-    methods: {
+    };
+  },
+  methods: {
 
-    },
-    computed: {
+  },
+  computed: {
 
-    }
-}
-
+  },
+};
 
 </script>
 

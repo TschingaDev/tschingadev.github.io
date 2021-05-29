@@ -8,25 +8,24 @@
 
 <script lang="js">
 
-  export default  {
-    name: 'contact',
-    props: [],
-    mounted () {
+export default {
+  name: 'contact',
+  props: [],
+  mounted() {
 
-    },
-    data () {
-      return {
+  },
+  data() {
+    return {
 
-      }
-    },
-    methods: {
+    };
+  },
+  methods: {
 
-    },
-    computed: {
+  },
+  computed: {
 
-    }
-}
-
+  },
+};
 
 </script>
 

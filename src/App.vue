@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <Page/>
+    <div id="title">
+      <Title/>
+    </div>
+    <div id="body">
+      <Body/>
+    </div>
   </div>
 </template>
 
 <script>
-import Page from './components/Page.vue';
+import Body from './components/Body.vue';
+import Title from './components/Title.vue';
 
 export default {
   name: 'App',
   components: {
-    Page,
+    Body,
+    Title,
   },
   data() {
     return {
@@ -26,6 +33,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+#title {
+
 }
 </style>

@@ -5,7 +5,11 @@
         {{ section.title }}
       </b-container>
       <b-container fluid="sm" class="section-body">
-        <component v-if="section.body != null" :is="section.body"></component>
+        <component
+          v-if="section.body != null"
+          :is="section.body"
+          v-bind:[section.prop.name]="section.prop.value"
+        ></component>
       </b-container>
     </b-container>
   </div>
@@ -14,6 +18,7 @@
 <script>
 import Calendar from './Calendar.vue';
 import Contact from './Contact.vue';
+import Introduction from './Introduction.vue';
 
 function createCalendarUrl() {
   const date = new Date();
@@ -27,11 +32,13 @@ function createCalendarUrl() {
 const sections = [
   {
     title: 'MITMACHEN',
-    body: null,
+    body: Introduction,
+    prop: {},
   },
   {
     title: 'KONTAKT',
     body: 'Contact',
+    prop: {},
   },
   {
     title: 'BILDER',
@@ -40,11 +47,15 @@ const sections = [
   {
     title: 'AGENDA',
     body: 'Calendar',
+    prop: {
+      name: 'iCalUrl',
+      value: createCalendarUrl(),
+    },
   },
 ];
 
 export default {
-  components: { Calendar, Contact },
+  components: { Calendar, Contact, Introduction },
   name: 'Body',
   props: {},
   data() {

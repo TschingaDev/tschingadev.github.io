@@ -1,9 +1,7 @@
 <template>
-  <div id="title">
-      <b-container fluid="sm">
-        TSCHINGA
-      </b-container>
-  </div>
+  <b-container fluid id="title">
+    TSCHINGA
+  </b-container>
 </template>
 
 <script>
@@ -21,8 +19,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #title {
+  height: 100%;
   color:#ffffff;
   background-color: black;
   font-size: 300%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

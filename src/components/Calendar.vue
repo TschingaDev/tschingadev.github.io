@@ -1,16 +1,17 @@
 <template>
-    <b-container class="calendar">
-      <ul id="example-1">
-        <li v-for="event in events" :key="event.title">
-          {{ event.start_dt.split('T')[0] }} : {{ event.title }}
-        </li>
-      </ul>
+    <b-container class="month">
+      <Month :events='events'/>
     </b-container>
 </template>
 
 <script>
+import Month from './Month.vue';
+
 export default {
   name: 'Calendar',
+  components: {
+    Month,
+  },
   props: {
     iCalUrl: {
       type: String,
@@ -63,12 +64,8 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .calendar-date {
-    font-size: 7vw;
-  }
-
-  .calendar-entry {
-    font-size: 6vw;
+  .month {
+    outline: 1px solid black;
   }
 }
 </style>

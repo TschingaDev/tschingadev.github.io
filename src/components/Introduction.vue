@@ -1,6 +1,8 @@
 <template>
     <b-container class="introduction-text">
-        {{ text }}
+      <p v-for='paragraph in text' :key='paragraph' class='m-0'>
+        {{ paragraph }}
+      </p>
     </b-container>
 </template>
 
@@ -13,7 +15,7 @@ export default {
   },
   data() {
     return {
-      text: introText,
+      text: introText.split('\n\n'),
     };
   },
 };
@@ -22,17 +24,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-.introduction-text {
-  width: 90%;
-  font-size: 3vw;
-  font-weight: 300;
-  line-height: 1.3;
-  padding-top: 100px;
+p {
+  padding-block: 3px;
 }
 
-@media (max-width: 768px) {
 .introduction-text {
-    font-size: 5vw;
-  }
+  width: 90%;
+  text-align: left;
 }
 </style>

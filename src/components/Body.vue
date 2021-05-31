@@ -1,14 +1,14 @@
 <template>
-  <div class="body">
-    <b-container v-for="(section, index) in sections" :key="section.title">
-      <b-button v-b-toggle='"collapsable-" + index' class="section-head">
+  <div>
+    <b-container fluid v-for="(section, index) in sections" :key="section.title" class="section p-0">
+      <b-container fluid v-b-toggle='"collapsable-" + index' class="section-head">
         {{ section.title }}
-      </b-button>
-      <b-collapse v-bind:id='"collapsable-" + index' fluid="sm" class="section-body">
+      </b-container>
+      <b-collapse v-bind:id='"collapsable-" + index' class="section-body">
         <component
-          v-if="section.body != null"
-          :is="section.body"
-          v-bind:[section.prop.name]="section.prop.value"
+          v-if='section.body != null'
+          :is='section.body'
+          v-bind:[section.prop.name]='section.prop.value'
         ></component>
       </b-collapse>
     </b-container>
@@ -19,6 +19,7 @@
 import Calendar from './Calendar.vue';
 import Contact from './Contact.vue';
 import Introduction from './Introduction.vue';
+import ImageGallery from './ImageGallery.vue';
 
 function createCalendarUrl() {
   const date = new Date();
@@ -32,7 +33,7 @@ function createCalendarUrl() {
 const sections = [
   {
     title: 'MITMACHEN',
-    body: Introduction,
+    body: 'Introduction',
     prop: {},
   },
   {
@@ -42,7 +43,8 @@ const sections = [
   },
   {
     title: 'BILDER',
-    body: null,
+    body: 'ImageGallery',
+    prop: {},
   },
   {
     title: 'AGENDA',
@@ -55,7 +57,12 @@ const sections = [
 ];
 
 export default {
-  components: { Calendar, Contact, Introduction },
+  components: {
+    Calendar,
+    Contact,
+    Introduction,
+    ImageGallery,
+  },
   name: 'Body',
   props: {},
   data() {
@@ -73,12 +80,33 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @supports (-webkit-text-stroke: 1px black) {
-  .section-head {
+  .section-head.not-collapsed {
     -webkit-text-stroke: 1px black;
     -webkit-text-fill-color: white;
+  }
+  .section-head.collapsed {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: black;
   }
 }
 .section-head {
   font-size: 200%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-head.not-collapsed {
+  outline: 1px solid black;
+}
+
+.section-head.collapsed {
+  outline: 1px solid white;
+  background-color: black;
+}
+
+.section-body {
+  outline: 1px solid black;
 }
 </style>

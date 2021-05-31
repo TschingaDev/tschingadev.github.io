@@ -1,9 +1,7 @@
 <template lang="html">
-
-  <section class="contact">
-    <h1>contact Component</h1>
-  </section>
-
+  <b-container class="contact">
+    contact Component
+  </b-container>
 </template>
 
 <script lang="js">

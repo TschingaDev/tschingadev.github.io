@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="title">
+    <div id="page-title">
       <Title/>
     </div>
-    <div id="body">
+    <div id="page-body">
       <Body/>
     </div>
   </div>
@@ -33,5 +33,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#page-title {
+  height: 20vh;
+}
+
+#page-body {
+  height: 80vh;
 }
 </style>

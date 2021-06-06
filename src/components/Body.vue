@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <b-container fluid v-for="(section, index) in sections" :key="section.title" class="section p-0">
-      <b-container fluid v-b-toggle='"collapsable-" + index' class="section-head">
-        {{ section.title }}
-      </b-container>
-      <b-collapse v-bind:id='"collapsable-" + index' class="section-body">
-        <component
-          v-if='section.body != null'
-          :is='section.body'
-          v-bind:[section.prop.name]='section.prop.value'
-        ></component>
-      </b-collapse>
-    </b-container>
-  </div>
+  <b-row cols="1" cols-md="2" fluid id="sections">
+    <div v-for="(section, index) in sections" :key="section.title">
+      <b-col fluid  class="section">
+        <b-container fluid v-b-toggle='"collapsable-" + index' class="section-head">
+          {{ section.title }}
+        </b-container>
+        <b-collapse v-bind:id='"collapsable-" + index' class="section-body">
+          <component
+            v-if='section.body != null'
+            :is='section.body'
+            v-bind:[section.prop.name]='section.prop.value'
+          ></component>
+        </b-collapse>
+      </b-col>
+    </div>
+  </b-row>
 </template>
 
 <script>
@@ -108,5 +110,16 @@ export default {
 
 .section-body {
   outline: 1px solid black;
+}
+
+.section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#sections {
+  padding: 0;
+  margin: 0;
 }
 </style>

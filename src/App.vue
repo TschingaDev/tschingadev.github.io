@@ -1,12 +1,15 @@
 <template>
-  <div id="app">
-    <div id="page-title">
-      <Title/>
-    </div>
-    <div id="page-body">
-      <Body/>
-    </div>
-  </div>
+  <b-row id="app">
+    <b-col fluid id="content">
+      <div class="page" id="page-title">
+        <Title/>
+      </div>
+      <div class="page" id="page-body">
+          <Body/>
+      </div>
+    </b-col>
+    <b-col fluid id="logo-background" class="d-none d-lg-block"></b-col>
+  </b-row>
 </template>
 
 <script>
@@ -35,11 +38,25 @@ export default {
   color: #2c3e50;
 }
 
+#logo-background {
+  background-image: url('./assets/tschinga_background.png');
+}
+
 #page-title {
   height: 20vh;
 }
 
 #page-body {
   height: 80vh;
+}
+
+.page {
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  margin-right: 0px;
+  padding: 0;
 }
 </style>

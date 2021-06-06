@@ -1,16 +1,16 @@
 <template lang="html">
-  <b-container>
+  <div>
     <b-container fluid class='image-container'>
-      <img src='@/assets/tschinga_mail.png' class='image'/>
+      <b-img src='@/assets/tschinga_mail.png' fluid class="image-container"></b-img>
     </b-container>
-    <b-container class="contact">
+    <b-container fluid class="contact">
       <p>Breitensteinstrasse 19A</p>
       <p>8037 Zürich</p>
     </b-container>
     <b-container fluid class='image-container'>
-      <img src='@/assets/tschinga_tag.png' class='image'/>
+      <b-img src='@/assets/tschinga_tag.png' fluid class="image-container"></b-img>
     </b-container>
-  </b-container>
+  </div>
 </template>
 
 <script>
@@ -36,12 +36,9 @@ p {
 }
 .contact {
   text-align: left;
+  border-left: 10px;
 }
 .image-container {
-  width: 80vw;
-  padding: 0;
-}
-.image {
   width: 80%;
 }
 </style>

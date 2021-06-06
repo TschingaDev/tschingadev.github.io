@@ -1,15 +1,17 @@
 <template>
-  <b-row id="app">
-    <b-col fluid id="content">
-      <div class="page" id="page-title">
-        <Title/>
-      </div>
-      <div class="page" id="page-body">
-          <Body/>
-      </div>
-    </b-col>
-    <b-col fluid id="logo-background" class="d-none d-lg-block"></b-col>
-  </b-row>
+  <b-container fluid id="app" class="overflow-hidden">
+    <b-row>
+      <b-col fluid id="content">
+        <div class="page" id="page-title">
+          <Title/>
+        </div>
+        <div class="page" id="page-body">
+            <Body/>
+        </div>
+      </b-col>
+      <b-col col="6" fluid id="logo-background" class="overflow-auto d-none d-lg-block"></b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -36,10 +38,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
+  background-image: url('./assets/tschinga_background.png');
+  background-size: 300px;
 }
 
 #logo-background {
-  background-image: url('./assets/tschinga_background.png');
 }
 
 #page-title {

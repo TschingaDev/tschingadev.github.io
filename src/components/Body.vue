@@ -1,7 +1,7 @@
 <template>
   <b-row cols="1" cols-md="2" fluid id="sections">
     <div v-for="(section, index) in sections" :key="section.title">
-      <b-col fluid  class="section">
+      <b-col v-if='$mq === "md" || $mq === "sm"' fluid class="section section-collapsable">
         <b-container fluid v-b-toggle='"collapsable-" + index' class="section-head">
           {{ section.title }}
         </b-container>
@@ -12,6 +12,18 @@
             v-bind:[section.prop.name]='section.prop.value'
           ></component>
         </b-collapse>
+      </b-col>
+      <b-col v-else fluid class="section">
+        <b-container fluid class="section-head">
+          {{ section.title }}
+        </b-container>
+        <b-container class="section-body">
+          <component
+            v-if='section.body != null'
+            :is='section.body'
+            v-bind:[section.prop.name]='section.prop.value'
+          ></component>
+        </b-container>
       </b-col>
     </div>
   </b-row>
@@ -81,16 +93,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@supports (-webkit-text-stroke: 1px black) {
-  .section-head.not-collapsed {
-    -webkit-text-stroke: 1px black;
-    -webkit-text-fill-color: white;
-  }
-  .section-head.collapsed {
-    -webkit-text-stroke: 1px white;
-    -webkit-text-fill-color: black;
-  }
-}
 .section-head {
   font-size: 200%;
   height: 20vh;
@@ -99,13 +101,32 @@ export default {
   align-items: center;
 }
 
-.section-head.not-collapsed {
+@supports (-webkit-text-stroke: 1px black) {
+  .section-collapsable .section-head.not-collapsed {
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+  }
+  .section-collapsable .section-head.collapsed {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: black;
+  }
+  .section .section-head {
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+  }
+}
+
+.section-collapsable .section-head.not-collapsed {
   outline: 1px solid black;
 }
 
-.section-head.collapsed {
+.section-collapsable .section-head.collapsed {
   outline: 1px solid white;
   background-color: black;
+}
+
+.section .section-head {
+  outline: 1px solid black;
 }
 
 .section-body {
@@ -121,5 +142,6 @@ export default {
 #sections {
   padding: 0;
   margin: 0;
+  background-color: white;
 }
 </style>

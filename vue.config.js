@@ -4,7 +4,7 @@ module.exports = {
       .rule('vue')
       .use('vue-loader')
       .loader('vue-loader')
-      .tap((options) => ({
+      .tap(() => ({
         transformAssetUrls: {
           video: ['src', 'poster'],
           source: 'src',

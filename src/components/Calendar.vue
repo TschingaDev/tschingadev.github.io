@@ -1,7 +1,9 @@
 <template>
-    <b-container class="month">
-      <Month :events='events'/>
+  <b-container fluid class="p-0">
+    <b-container fluid v-for="parsedEvents in monthlyEvents" :key="parsedEvents.month" class="p-0 month">
+      <Month :events='parsedEvents.events' :month='parsedEvents.month'/>
     </b-container>
+  </b-container>
 </template>
 
 <script>
@@ -36,12 +38,34 @@ export default {
           response.json()
             .then((data) => {
               this.events = data.events;
+              console.log(data.events);
             });
         },
       )
       .catch((err) => {
         console.log('Could not get ', err);
       });
+  },
+  computed: {
+    monthlyEvents() {
+      const parsedEvents = [];
+      this.events.forEach((event) => {
+        const month = this.parseMonth(event.start_dt);
+        if (parsedEvents.length === 0 || month !== parsedEvents[parsedEvents.length - 1].month) {
+          parsedEvents.push({ month, events: [] });
+        }
+        parsedEvents[parsedEvents.length - 1].events.push(event);
+      });
+      console.log(parsedEvents);
+      return parsedEvents;
+    },
+  },
+  methods: {
+    parseMonth(date) {
+      const dayOfWeek = new Date(date).getMonth();
+      return Number.isNaN(dayOfWeek) ? null
+        : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][dayOfWeek];
+    },
   },
 };
 </script>

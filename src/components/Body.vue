@@ -1,32 +1,50 @@
 <template>
-  <b-row cols="1" cols-md="2" fluid id="sections">
-    <div v-for="(section, index) in sections" :key="section.title">
-      <b-col v-if='$mq === "md" || $mq === "sm"' fluid class="section section-collapsable">
+  <b-container fluid class="sections">
+    <b-container v-if='$mq === "md" || $mq === "sm"' cols="1" cols-md="2" fluid class="sections">
+      <b-row v-for="(section, index) in sections" :key="section.title" fluid class="section section-collapsable">
         <b-container fluid v-b-toggle='"collapsable-" + index' class="section-head">
           {{ section.title }}
         </b-container>
-        <b-collapse v-bind:id='"collapsable-" + index' class="section-body">
+        <b-collapse fluid v-bind:id='"collapsable-" + index' class="section-body">
           <component
             v-if='section.body != null'
             :is='section.body'
             v-bind:[section.prop.name]='section.prop.value'
           ></component>
         </b-collapse>
-      </b-col>
-      <b-col v-else fluid class="section">
+      </b-row>
+    </b-container>
+    <b-row v-else class="sections">
+      <b-col class="section">
         <b-container fluid class="section-head">
-          {{ section.title }}
+          MITMACHEN
         </b-container>
-        <b-container class="section-body">
-          <component
-            v-if='section.body != null'
-            :is='section.body'
-            v-bind:[section.prop.name]='section.prop.value'
-          ></component>
+        <b-container fluid class="section-body">
+          <introduction/>
+        </b-container>
+        <b-container fluid class="section-head">
+          KONTAKT
+        </b-container>
+        <b-container fluid class="section-body">
+          <contact/>
+        </b-container>
+        <b-container fluid class="section-head">
+          BILDER
+        </b-container>
+        <b-container fluid class="section-body">
+          <image-gallery/>
         </b-container>
       </b-col>
-    </div>
-  </b-row>
+      <b-col class="section" id="agenda-section">
+        <b-container fluid class="section-head">
+          AGENDA
+        </b-container>
+        <b-container fluid class="section-body">
+          <calendar :iCalUrl="url"/>
+        </b-container>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -118,6 +136,7 @@ export default {
 
 .section-collapsable .section-head.not-collapsed {
   outline: 1px solid black;
+  background-color: white;
 }
 
 .section-collapsable .section-head.collapsed {
@@ -127,10 +146,15 @@ export default {
 
 .section .section-head {
   outline: 1px solid black;
+  background-color: white;
 }
 
 .section-body {
   outline: 1px solid black;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: white;
 }
 
 .section {
@@ -139,9 +163,12 @@ export default {
   padding: 0;
 }
 
-#sections {
+.sections {
   padding: 0;
   margin: 0;
-  background-color: white;
+}
+
+#agenda-section {
+  background-color: transparent;
 }
 </style>

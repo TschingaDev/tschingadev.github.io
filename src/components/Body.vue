@@ -4,6 +4,7 @@
       <b-row v-for="(section, index) in sections" :key="section.title" fluid class="section section-collapsable">
         <b-container fluid v-b-toggle='"collapsable-" + index' class="section-head">
           {{ section.title }}
+          <b-img v-if='section.title === "AGENDA"' src='@/assets/heart.png' id="agenda-graphic"></b-img>
         </b-container>
         <b-collapse fluid v-bind:id='"collapsable-" + index' class="section-body">
           <component
@@ -36,8 +37,9 @@
         </b-container>
       </b-col>
       <b-col class="section" id="agenda-section">
-        <b-container fluid class="section-head">
+        <b-container fluid id="agenda-head" class="section-head">
           AGENDA
+        <b-img src='@/assets/heart.png' fluid id="agenda-graphic"></b-img>
         </b-container>
         <b-container fluid class="section-body">
           <calendar :iCalUrl="url"/>
@@ -57,7 +59,7 @@ function createCalendarUrl() {
   const date = new Date();
   const fd = new Date(date.getFullYear(), date.getMonth(), 1);
   const firstDay = fd.toISOString().split('T')[0];
-  const ld = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  const ld = new Date(date.getFullYear(), (date.getMonth() + 3) % 12, 0);
   const lastDay = ld.toISOString().split('T')[0];
   return `https://api.teamup.com/ks4dy26zrjnwhw4kz5/events?startDate=${firstDay}&endDate=${lastDay}`;
 }
@@ -142,11 +144,13 @@ export default {
 .section-collapsable .section-head.collapsed {
   outline: 1px solid white;
   background-color: black;
+  overflow: hidden;
 }
 
 .section .section-head {
   outline: 1px solid black;
   background-color: white;
+  position: relative;
 }
 
 .section-body {
@@ -170,5 +174,13 @@ export default {
 
 #agenda-section {
   background-color: transparent;
+}
+
+#agenda-graphic {
+  position: absolute;
+  top: 45%;
+  left: 70%;
+  height: 65%;
+  z-index: 10;
 }
 </style>

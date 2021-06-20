@@ -38,7 +38,6 @@ export default {
           response.json()
             .then((data) => {
               this.events = data.events;
-              console.log(data.events);
             });
         },
       )
@@ -56,7 +55,6 @@ export default {
         }
         parsedEvents[parsedEvents.length - 1].events.push(event);
       });
-      console.log(parsedEvents);
       return parsedEvents;
     },
   },
@@ -87,9 +85,9 @@ export default {
   line-height: 1.3;
 }
 
-@media (max-width: 768px) {
-  .month {
-    outline: 1px solid black;
-  }
+div > div + div {
+  border-top: 1px solid black;
+}
+.month {
 }
 </style>

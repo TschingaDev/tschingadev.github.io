@@ -27,7 +27,6 @@ export default {
 p {
   padding-block: 3px;
 }
-
 .introduction-text {
   width: 90%;
   text-align: left;

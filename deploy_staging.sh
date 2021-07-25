@@ -16,6 +16,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:TschingaDev/tschingaTest.git staging:gh-pages
+git push -f git@github.com:MaxHuerlimann/tschingaStaging.git master:gh-pages
 
 cd -

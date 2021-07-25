@@ -30,7 +30,7 @@ export default {
   position: relative;
   display: grid;
   grid-template-columns: 20% auto 20%;
-  grid-template-rows: 100px auto 100px;
+  grid-template-rows: 90px auto 90px;
 }
 
 p {
@@ -48,8 +48,9 @@ p {
   position: absolute;
   left: 10%;
   top: 5%;
-  width: 60%;
-  max-height: 100px;
+  width: 50%;
+  max-height: 85px;
+  max-width: 250px;
   z-index: 10;
   grid-column: 1 / 3;
   grid-row: 1;
@@ -60,7 +61,8 @@ p {
   top: 10%;
   left: 50%;
   width: 60%;
-  max-height: 100px;
+  max-width: 300px;
+  max-height: 85px;
   z-index: 10;
   grid-column: 1 / 3;
   grid-row: 3;

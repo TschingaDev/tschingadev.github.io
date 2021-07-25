@@ -55,7 +55,6 @@ export default {
         if (parsedEvents.length === 0 || month !== parsedEvents[parsedEvents.length - 1].month) {
           parsedEvents.push({ month, color: colors[parsedEvents.length], events: [] });
         }
-        console.log(event);
         parsedEvents[parsedEvents.length - 1].events.push(event);
       });
       return parsedEvents;
@@ -90,7 +89,5 @@ export default {
 
 div > div + div {
   border-top: 1px solid black;
-}
-.month {
 }
 </style>

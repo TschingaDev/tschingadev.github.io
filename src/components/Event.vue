@@ -4,7 +4,7 @@
     <p id='title'> {{ title }} </p>
     <p id='organizer'> von {{ organizer }} </p>
     <p id='description'> {{ description }} </p>
-    <p id='time'> {{ time }} </p>
+    <p id='time' v-if='!all_day'> {{ time }} </p>
   </b-container>
 </template>
 
@@ -18,6 +18,7 @@ export default {
     description: String,
     time: String,
     organizer: String,
+    all_day: Boolean,
   },
   mounted() {
 
@@ -65,7 +66,7 @@ export default {
   #description {
     margin: 0px;
     line-height: 100%;
-    padding-block: 2px;
+    padding-block: 3px;
   }
   #time {
     margin: 0px;

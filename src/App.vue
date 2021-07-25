@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Times, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./assets/tschinga_background.png');
@@ -44,6 +44,7 @@ export default {
   height: 20vh;
   margin: 0;
   padding: 0;
+  outline: 1px solid black;
 }
 
 #page-body {
@@ -55,6 +56,10 @@ export default {
 
 #content {
   margin-right: 0px;
+  padding: 0;
+}
+
+#logo-background {
   padding: 0;
 }
 </style>

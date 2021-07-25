@@ -12,7 +12,7 @@
               a 35,35 0 1,1 70,0
               a 35,35 0 1,1 -70,0
               "
-            fill="red"/>
+            :fill='this.color'/>
     </svg>
     <svg
       id="circ-text"
@@ -47,6 +47,7 @@ export default {
   props: {
     month: String,
     size: Number,
+    color: String,
   },
 };
 

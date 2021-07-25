@@ -57,7 +57,7 @@ import ImageGallery from './ImageGallery.vue';
 
 function createCalendarUrl() {
   const date = new Date();
-  const fd = new Date(date.getFullYear(), date.getMonth(), 1);
+  const fd = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   const firstDay = fd.toISOString().split('T')[0];
   const ld = new Date(date.getFullYear(), (date.getMonth() + 3) % 12, 0);
   const lastDay = ld.toISOString().split('T')[0];

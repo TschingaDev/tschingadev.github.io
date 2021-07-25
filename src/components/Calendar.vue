@@ -1,13 +1,15 @@
 <template>
   <b-container fluid class="p-0">
     <b-container fluid v-for="parsedEvents in monthlyEvents" :key="parsedEvents.month" class="p-0 month">
-      <Month :events='parsedEvents.events' :month='parsedEvents.month'/>
+      <Month :events='parsedEvents.events' :month='parsedEvents.month' :color='parsedEvents.color'/>
     </b-container>
   </b-container>
 </template>
 
 <script>
 import Month from './Month.vue';
+
+const colors = ['red', 'cyan', 'yellow', 'orange'];
 
 export default {
   name: 'Calendar',
@@ -51,8 +53,9 @@ export default {
       this.events.forEach((event) => {
         const month = this.parseMonth(event.start_dt);
         if (parsedEvents.length === 0 || month !== parsedEvents[parsedEvents.length - 1].month) {
-          parsedEvents.push({ month, events: [] });
+          parsedEvents.push({ month, color: colors[parsedEvents.length], events: [] });
         }
+        console.log(event);
         parsedEvents[parsedEvents.length - 1].events.push(event);
       });
       return parsedEvents;
@@ -60,9 +63,9 @@ export default {
   },
   methods: {
     parseMonth(date) {
-      const dayOfWeek = new Date(date).getMonth();
-      return Number.isNaN(dayOfWeek) ? null
-        : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][dayOfWeek];
+      const monthIndex = new Date(date).getMonth();
+      return Number.isNaN(monthIndex) ? null
+        : ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'][monthIndex];
     },
   },
 };

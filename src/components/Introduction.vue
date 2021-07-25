@@ -30,5 +30,7 @@ p {
 .introduction-text {
   width: 90%;
   text-align: left;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 </style>

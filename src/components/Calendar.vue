@@ -9,7 +9,7 @@
 <script>
 import Month from './Month.vue';
 
-const colors = ['red', 'cyan', 'yellow', 'orange'];
+const colors = ['#ff7bac', '#ff931e', '#22b573', 'cyan'];
 
 export default {
   name: 'Calendar',

@@ -1,11 +1,15 @@
 <template lang="html">
   <div id='contact-container'>
-    <b-img src='@/assets/tschinga_mail.png' fluid id="mail-graphic"></b-img>
-    <b-container fluid class="contact p-300">
-      <b-container>Breitensteinstrasse 19A</b-container>
-      <b-container>8037 Zürich</b-container>
+    <a href="mailto:info@tschinga.ch">
+      <b-img src='@/assets/tschinga_mail.png' fluid id="mail-graphic"></b-img>
+    </a>
+    <b-container fluid class="contact">
+      <b-container><p>Breitensteinstrasse 19A</p></b-container>
+      <b-container><p>8037 Zürich</p></b-container>
     </b-container>
-    <b-img src='@/assets/tschinga_tag.png' fluid id="tag-graphic"></b-img>
+    <a href="https://www.instagram.com/tschinga_wipkingen/">
+      <b-img src='@/assets/tschinga_tag.png' fluid id="tag-graphic"></b-img>
+    </a>
   </div>
 </template>
 
@@ -29,11 +33,13 @@ export default {
 #contact-container {
   position: relative;
   display: grid;
-  grid-template-columns: 20% auto 20%;
+  grid-template-columns: 15% auto 15%;
   grid-template-rows: 90px auto 90px;
 }
 
 p {
+  font-family: 'Frank Ruhl';
+  font-size: 19px;
   margin: 0;
   padding: 0;
 }

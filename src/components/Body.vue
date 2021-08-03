@@ -29,12 +29,6 @@
         <b-container fluid class="section-body">
           <contact/>
         </b-container>
-        <b-container fluid class="section-head">
-          BILDER
-        </b-container>
-        <b-container fluid class="section-body">
-          <image-gallery/>
-        </b-container>
       </b-col>
       <b-col class="section" id="agenda-section">
         <b-container fluid id="agenda-head" class="section-head">
@@ -76,11 +70,6 @@ const sections = [
     prop: {},
   },
   {
-    title: 'BILDER',
-    body: 'ImageGallery',
-    prop: {},
-  },
-  {
     title: 'AGENDA',
     body: 'Calendar',
     prop: {
@@ -113,9 +102,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+p {
+  font-family: 'Times';
+}
 .section-head {
   font-size: 200%;
-  height: 20vh;
+  height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,9 +140,14 @@ export default {
 }
 
 .section .section-head {
+  height: 20vh;
   outline: 1px solid black;
   background-color: white;
   position: relative;
+}
+
+.section-collapsable .section-head {
+  height: 25vh;
 }
 
 .section-body {

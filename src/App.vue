@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Helvetica, Times, sans-serif;
+  font-family: Mittelschrift;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./assets/tschinga_background.png');
@@ -41,14 +41,14 @@ export default {
 }
 
 #page-title {
-  height: 20vh;
+  height: 25vh;
   margin: 0;
   padding: 0;
   outline: 1px solid black;
 }
 
 #page-body {
-  height: 80vh;
+  height: 75vh;
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -61,5 +61,11 @@ export default {
 
 #logo-background {
   padding: 0;
+}
+
+@font-face {
+  font-family: "Mittelschrift";
+  src: local("Mittelschrift"),
+   url(./fonts/Mittelschrift/alte-din-1451-mittelschrift.regular.ttf) format("truetype");
 }
 </style>

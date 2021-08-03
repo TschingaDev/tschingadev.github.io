@@ -48,10 +48,12 @@ export default {
     padding: 0px;
   }
   #date {
+    font-family: 'Helvetica';
     font-size: 90%;
     margin: 0px;
   }
   #title {
+    font-family: 'Helvetica';
     font-size: 120%;
     font-weight: bold;
     margin: 0px;
@@ -59,16 +61,19 @@ export default {
     line-height: 100%;
   }
   #organizer {
+    font-family: 'Frank Ruhl';
     margin: 0px;
     line-height: 100%;
     font-style: italic;
   }
   #description {
+    font-family: 'Frank Ruhl';
     margin: 0px;
     line-height: 100%;
     padding-block: 3px;
   }
   #time {
+    font-family: 'Frank Ruhl';
     margin: 0px;
   }
 </style>
